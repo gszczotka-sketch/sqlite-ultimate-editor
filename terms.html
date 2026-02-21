@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service – SQLite Ultimate Editor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1565C0;
+            --primary-dark: #0D47A1;
+            --accent: #FF6F00;
+            --bg: #F5F7FA;
+            --text: #212121;
+            --text-light: #757575;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        /* NAV */
+        nav {
+            background: var(--primary-dark);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        nav .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* BANNER */
+        .page-banner {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #fff;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .page-banner p {
+            color: #B3C8E8;
+            font-size: 16px;
+        }
+
+        /* CONTENT */
+        .content-wrapper {
+            max-width: 860px;
+            margin: 48px auto;
+            padding: 0 24px 64px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: #E3F2FD;
+            color: var(--primary-dark);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 36px 0 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E3F2FD;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            color: #444;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        ul li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            color: #444;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: #E8F5E9;
+            border-left: 4px solid #43A047;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 15px;
+            color: #2E7D32;
+            line-height: 1.7;
+        }
+
+        .warning-box {
+            background: #FFF8E1;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 15px;
+            color: #5D4037;
+            line-height: 1.7;
+        }
+
+        .danger-box {
+            background: #FFEBEE;
+            border-left: 4px solid #E53935;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 15px;
+            color: #B71C1C;
+            line-height: 1.7;
+        }
+
+        .contact-box {
+            background: var(--primary-dark);
+            color: #fff;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: #B3C8E8;
+            margin-bottom: 16px;
+        }
+
+        .contact-box a {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: opacity 0.2s;
+        }
+
+        .contact-box a:hover {
+            opacity: 0.9;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: #F0F4FF;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 36px;
+        }
+
+        .toc h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .toc ol {
+            padding-left: 20px;
+            list-style: decimal;
+        }
+
+        .toc ol li {
+            padding: 4px 0;
+        }
+
+        .toc ol li::before {
+            display: none;
+        }
+
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 32px 40px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 28px 20px;
+            }
+            .page-banner h1 {
+                font-size: 28px;
+            }
+            nav {
+                padding: 16px 20px;
+            }
+            nav .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="index.html" class="logo">SQLite Ultimate <span>Editor</span></a>
+    <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how">How It Works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- BANNER -->
+<div class="page-banner">
+    <h1>📄 Terms of Service</h1>
+    <p>Please read these terms carefully before using SQLite Ultimate Editor.</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrapper">
+    <div class="card">
+
+        <span class="last-updated">📅 Last updated: January 1, 2026</span>
+
+        <div class="highlight-box">
+            <strong>Summary:</strong> SQLite Ultimate Editor is a tool provided "as is" for personal and professional use. You are responsible for the databases you open and edit. We do not access your data.
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc">
+            <h3>📑 Table of Contents</h3>
+            <ol>
+                <li><a href="#acceptance">Acceptance of Terms</a></li>
+                <li><a href="#description">Description of the App</a></li>
+                <li><a href="#license">License</a></li>
+                <li><a href="#pro">PRO Version & Purchases</a></li>
+                <li><a href="#permitted">Permitted Use</a></li>
+                <li><a href="#prohibited">Prohibited Use</a></li>
+                <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+                <li><a href="#liability">Limitation of Liability</a></li>
+                <li><a href="#thirdparty">Third-Party Services</a></li>
+                <li><a href="#changes">Changes to Terms</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ol>
+        </div>
+
+        <h2 id="acceptance">1. Acceptance of Terms</h2>
+        <p>By downloading, installing or using SQLite Ultimate Editor ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+        <p>These Terms apply to all users of the App, including users of the free version and the PRO version.</p>
+
+        <h2 id="description">2. Description of the App</h2>
+        <p>SQLite Ultimate Editor is an Android application that allows users to open, browse, edit, query and export SQLite database files (.db, .sqlite) stored on their device. The App operates entirely locally — no data is sent to external servers operated by us.</p>
+
+        <h2 id="license">3. License</h2>
+        <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to:</p>
+        <ul>
+            <li>Download and install the App on Android devices you own or control</li>
+            <li>Use the App for personal or professional purposes</li>
+        </ul>
+        <p>This license does not include the right to:</p>
+        <ul>
+            <li>Copy, modify or distribute the App or its source code</li>
+            <li>Reverse engineer or decompile the App</li>
+            <li>Sublicense or sell access to the App</li>
+            <li>Remove or alter any proprietary notices</li>
+        </ul>
+
+        <h2 id="pro">4. PRO Version & Purchases</h2>
+        <p>SQLite Ultimate Editor offers a one-time PRO license purchase through Google Play Billing that unlocks additional features including ad-free experience, data export.</p>
+        <ul>
+            <li>All purchases are processed by Google Play and are subject to <a href="https://play.google.com/about/play-terms/" target="_blank">Google Play Terms of Service</a></li>
+            <li>The PRO license is tied to your Google Play account and can be restored on any device logged into that account</li>
+            <li>We do not offer refunds directly — refund requests must be submitted through Google Play within the applicable refund window</li>
+            <li>The PRO license is a one-time purchase or per-month subscription purchase</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠ Note:</strong> Purchasing PRO on one Google account does not transfer to a different Google account. Keep your Google account credentials safe.
+        </div>
+
+        <h2 id="permitted">5. Permitted Use</h2>
+        <p>You may use the App to:</p>
+        <ul>
+            <li>Open and inspect SQLite databases you own or have permission to access</li>
+            <li>Edit, query and manage database records for legitimate purposes</li>
+            <li>Export data for backup, analysis or migration purposes</li>
+            <li>Use the App in a professional or development environment</li>
+        </ul>
+
+        <h2 id="prohibited">6. Prohibited Use</h2>
+        <p>You must not use the App to:</p>
+        <ul>
+            <li>Access, edit or tamper with databases you do not own or have no authorization to access</li>
+            <li>Circumvent security mechanisms of other applications</li>
+            <li>Store, process or distribute illegal, harmful or malicious content</li>
+            <li>Violate any applicable local, national or international laws or regulations</li>
+            <li>Attempt to gain unauthorized access to other systems or networks</li>
+        </ul>
+
+        <div class="danger-box">
+            <strong>🚫 Important:</strong> Using this App to access databases belonging to other users or applications without authorization may violate applicable computer crime laws. You are solely responsible for your actions.
+        </div>
+
+        <h2 id="disclaimer">7. Disclaimer of Warranties</h2>
+        <p>The App is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind, either express or implied, including but not limited to:</p>
+        <ul>
+            <li>Warranties of merchantability or fitness for a particular purpose</li>
+            <li>Uninterrupted or error-free operation</li>
+            <li>Accuracy or reliability of results</li>
+            <li>Compatibility with all devices or Android versions</li>
+        </ul>
+        <p>We strongly recommend keeping backups of your database files before making any edits. We are not responsible for data loss resulting from use of the App.</p>
+
+        <h2 id="liability">8. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, Grzegorz Szczotka shall not be liable for any indirect, incidental, special, consequential or punitive damages, including but not limited to:</p>
+        <ul>
+            <li>Loss of data or database corruption</li>
+            <li>Loss of profits or business opportunities</li>
+            <li>Device damage resulting from use of the App</li>
+            <li>Any unauthorized access to databases facilitated by misuse of the App</li>
+        </ul>
+        <p>Our total liability to you for any claims arising from the use of the App shall not exceed the amount you paid for the PRO license, if any.</p>
+
+        <h2 id="thirdparty">9. Third-Party Services</h2>
+        <p>The free version of the App uses <strong>Google AdMob</strong> for advertising. The PRO license purchase is processed through <strong>Google Play Billing</strong>. These services are subject to their own terms and privacy policies:</p>
+        <ul>
+            <li><a href="https://policies.google.com/terms" target="_blank">Google Terms of Service</a></li>
+            <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+            <li><a href="https://play.google.com/about/play-terms/" target="_blank">Google Play Terms of Service</a></li>
+        </ul>
+        <p>We are not responsible for the practices of these third-party services.</p>
+
+        <h2 id="changes">10. Changes to Terms</h2>
+        <p>We reserve the right to update these Terms at any time. Updated Terms will be posted on this page with a revised "Last updated" date. Continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+        <p>We encourage you to review these Terms periodically.</p>
+
+        <h2 id="contact">11. Contact</h2>
+        <p>If you have any questions about these Terms of Service, please contact us:</p>
+
+        <div class="contact-box">
+            <p>Questions about our Terms? We're happy to help.</p>
+            <a href="mailto:gszczotka@gmail.com">✉ gszczotka@gmail.com</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:gszczotka@gmail.com">Contact</a>
+        <a href="https://play.google.com/store/apps/details?id=com.gszczotka.sqliteeditor">Google Play</a>
+    </div>
+    <p>© 2026 SQLite Ultimate Editor. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLite Ultimate Editor – Database Editor for Android</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1565C0;
+            --primary-dark: #0D47A1;
+            --accent: #FF6F00;
+            --bg: #F5F7FA;
+            --text: #212121;
+            --text-light: #757575;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        /* NAV */
+        nav {
+            background: var(--primary-dark);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #fff;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #B3C8E8;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+            background: transparent;
+        }
+
+        /* BADGES */
+        .badges {
+            margin-top: 48px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        /* FEATURES */
+        .section {
+            padding: 80px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 17px;
+            margin-bottom: 56px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* PRICING */
+        .pricing-section {
+            background: var(--primary-dark);
+            color: #fff;
+            padding: 80px 40px;
+        }
+
+        .pricing-section .section-title {
+            color: #fff;
+        }
+
+        .pricing-section .section-subtitle {
+            color: #B3C8E8;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .price-card.featured {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.04);
+        }
+
+        .price-card:hover {
+            transform: scale(1.06);
+        }
+
+        .price-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .price-card .price {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .price-card .price span {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .price-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 24px 0;
+        }
+
+        .price-card ul li {
+            padding: 8px 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .price-card ul li::before {
+            content: "✓  ";
+            font-weight: 700;
+        }
+
+        /* HOW IT WORKS */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            counter-reset: step;
+        }
+
+        .step {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 32px 40px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">SQLite Ultimate <span>Editor</span></div>
+    <div>
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Professional <span>SQLite</span><br>Database Editor for Android</h1>
+    <p>Browse, edit and manage SQLite databases directly on your device. No computer. No compromises.</p>
+    <div class="btn-group">
+        <a href="https://play.google.com/store/apps/details?id=com.gszczotka.sqliteeditor" class="btn btn-primary">
+            ▶ Get it on Google Play
+        </a>
+        <a href="#features" class="btn btn-outline">
+            Learn More
+        </a>
+    </div>
+    <div class="badges">
+        <div class="badge">🆓 Free Version</div>
+        <div class="badge">⭐ PRO Version</div>
+        <div class="badge">📱 Android</div>
+        <div class="badge">🔒 No Cloud</div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">A complete tool for working with SQLite databases on your mobile device</p>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🗄️</div>
+            <h3>Database Browser</h3>
+            <p>Open .db and .sqlite files from your device storage. Browse tables, columns and records in a clean interface.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✏️</div>
+            <h3>SQL Editor</h3>
+            <p>Write and execute SQL queries directly on your device. Syntax highlighting and query history make your work easier.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Table Management</h3>
+            <p>Create, modify and delete tables. Add, edit and remove records without writing SQL.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📤</div>
+            <h3>Data Export</h3>
+            <p>Export data to CSV or Excel format. Share query results directly from your phone.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy First</h3>
+            <p>All data stays on your device. No external servers, no cloud storage.</p>
+        </div><div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast & Lightweight</h3>
+            <p>Optimized performance even on older devices. Opens large databases without any issues.</p>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background: #fff; padding: 80px 0;" id="how">
+    <div class="section" style="padding-top: 0; padding-bottom: 0;">
+        <h2 class="section-title">How Does It Work?</h2>
+        <p class="section-subtitle">Start working with your database in four simple steps</p>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Download the App</h3>
+                <p>Install SQLite Editor from the Google Play Store for free in just a few seconds.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Open a Database File</h3>
+                <p>Select a .db or .sqlite file from your device storage or import it from any location.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Browse & Edit</h3>
+                <p>Browse tables, run SQL queries and manage your data effortlessly.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Export Results</h3>
+                <p>Save or share your results in CSV or Excel format.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+    <h2 class="section-title">Choose Your Plan</h2>
+    <p class="section-subtitle">Start for free, unlock PRO when you're ready</p>
+
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>Free</h3>
+            <div class="price">$0<span>/forever</span></div>
+            <ul>
+                <li>Limit table browsing</li>
+                <li>Limit SQL queries</li>
+                <li>Database structure preview</li>
+				<li>CSV export</li>
+                <li>Ads supported</li>
+            </ul>
+        </div>
+		<div class="price-card featured">
+            <h3>⭐ PRO subscription</h3>
+            <div class="price">$2.59<span>/per-month</span></div>
+            <ul>
+                <li>Everything in Free</li>
+				<li>No limit</li>
+                <li>No ads</li>
+                <li>CSV & Excel export</li>             
+                <li>Priority support</li>
+            </ul>
+        </div>
+        <div class="price-card featured">
+            <h3>⭐ PRO</h3>
+            <div class="price">$11.99<span>/one-time</span></div>
+            <ul>
+                <li>Everything in Free</li>
+				<li>No limit</li>
+                <li>No ads</li>
+                <li>CSV & Excel export</li>             
+                <li>Priority support</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:gszczotka@gmail.com">Contact</a>
+        <a href="https://play.google.com/store/apps/details?id=com.gszczotka.sqliteeditor">Google Play</a>
+    </div>
+    <p>© 2026 SQLite Ultimate Editor. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

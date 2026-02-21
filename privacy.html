@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy – SQLite Ultimate Editor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1565C0;
+            --primary-dark: #0D47A1;
+            --accent: #FF6F00;
+            --bg: #F5F7FA;
+            --text: #212121;
+            --text-light: #757575;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        /* NAV */
+        nav {
+            background: var(--primary-dark);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        nav .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* HERO BANNER */
+        .page-banner {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #fff;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .page-banner p {
+            color: #B3C8E8;
+            font-size: 16px;
+        }
+
+        /* CONTENT */
+        .content-wrapper {
+            max-width: 860px;
+            margin: 48px auto;
+            padding: 0 24px 64px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: #E3F2FD;
+            color: var(--primary-dark);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 36px 0 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E3F2FD;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            color: #444;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        ul li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            color: #444;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: #E8F5E9;
+            border-left: 4px solid #43A047;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 15px;
+            color: #2E7D32;
+            line-height: 1.7;
+        }
+
+        .warning-box {
+            background: #FFF8E1;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 15px;
+            color: #5D4037;
+            line-height: 1.7;
+        }
+
+        .contact-box {
+            background: var(--primary-dark);
+            color: #fff;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: #B3C8E8;
+            margin-bottom: 16px;
+        }
+
+        .contact-box a {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: opacity 0.2s;
+        }
+
+        .contact-box a:hover {
+            opacity: 0.9;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 32px 40px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 28px 20px;
+            }
+            .page-banner h1 {
+                font-size: 28px;
+            }
+            nav {
+                padding: 16px 20px;
+            }
+            nav .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="index.html" class="logo">SQLite Ultimate <span>Editor</span></a>
+    <div class="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how">How It Works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- BANNER -->
+<div class="page-banner">
+    <h1>🔒 Privacy Policy</h1>
+    <p>Your privacy is important to us. Read how we handle your data.</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrapper">
+    <div class="card">
+
+        <span class="last-updated">📅 Last updated: January 1, 2026</span>
+
+        <div class="highlight-box">
+            <strong>Short version:</strong> SQLite Ultimate Editor does not collect, store or transmit any of your personal data or database contents. Everything stays on your device.
+        </div>
+
+        <h2>📋 Introduction</h2>
+        <p>This Privacy Policy describes how SQLite Ultimate Editor ("the App"), developed by Grzegorz Szczotka ("we", "us", or "our"), handles information when you use our Android application.</p>
+        <p>By using the App, you agree to the practices described in this policy.</p>
+
+        <h2>📦 Data We Do NOT Collect</h2>
+        <p>We do not collect, process or transmit:</p>
+        <ul>
+            <li>The contents of any database files you open</li>
+            <li>Any SQL queries you write or execute</li>
+            <li>File names or paths on your device</li>
+            <li>Personal information (name, email, location)</li>
+            <li>Device identifiers beyond what third-party SDKs require</li>
+        </ul>
+
+        <h2>📱 Local Storage Only</h2>
+        <p>All operations performed by the App — opening, reading, editing and exporting databases — happen entirely on your device. No data is uploaded to any server owned or operated by us.</p>
+
+        <div class="highlight-box">
+            <strong>🔒 Your databases never leave your device.</strong> We have no access to the content of any files you work with inside the App.
+        </div>
+
+        <h2>📢 Advertising (Free Version)</h2>
+        <p>The free version of SQLite Ultimate Editor displays ads served by <strong>Google AdMob</strong>. AdMob may collect certain information to serve personalized or non-personalized ads, including:</p>
+        <ul>
+            <li>Device advertising ID</li>
+            <li>Approximate location (if permitted)</li>
+            <li>App usage and interaction data</li>
+            <li>IP address</li>
+        </ul>
+        <p>This data collection is governed by <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--primary);">Google's Privacy Policy</a>. You can opt out of personalized ads in your device settings under <em>Google → Ads → Opt out of Ads Personalization</em>.</p>
+
+        <div class="warning-box">
+            <strong>⭐ PRO Version:</strong> Upgrading to PRO removes all ads and eliminates AdMob data collection entirely.
+        </div>
+
+        <h2>💳 In-App Purchases</h2>
+        <p>PRO license purchases are processed exclusively through <strong>Google Play Billing</strong>. We do not receive or store any payment information. All transactions are handled by Google in accordance with their own privacy and security policies.</p>
+
+        <h2>🔑 Permissions</h2>
+        <p>The App may request the following permissions:</p>
+        <ul>
+            <li><strong>Storage / Files:</strong> Required to open and save database files from your device</li>
+            <li><strong>Internet:</strong> Required only for displaying ads in the free version</li>
+            <li><strong>Billing:</strong> Required for processing PRO license purchases via Google Play</li>
+        </ul>
+        <p>We request only the permissions necessary for the App to function. No permissions are used beyond their stated purpose.</p>
+
+        <h2>👶 Children's Privacy</h2>
+        <p>The App is not directed at children under the age of 13. We do not knowingly collect personal information from children.</p>
+
+        <h2>🔄 Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated "Last updated" date. We encourage you to review this page periodically.</p>
+
+        <h2>📬 Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+
+        <div class="contact-box">
+            <p>Have a question about your privacy or the app?</p>
+            <a href="mailto:gszczotka@gmail.com">✉ gszczotka@gmail.com</a>
+        </div></div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:gszczotka@gmail.com">Contact</a>
+        <a href="https://play.google.com/store/apps/details?id=com.gszczotka.sqliteeditor">Google Play</a>
+    </div>
+    <p>© 2026 SQLite Ultimate Editor. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
