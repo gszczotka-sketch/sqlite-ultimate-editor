@@ -30,7 +30,7 @@
         /* NAV */
         nav {
             background: var(--primary-dark);
-            padding: 16px 40px;
+            padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,39 +42,89 @@
 
         nav .logo {
             color: #fff;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         nav .logo span {
             color: var(--accent);
         }
 
-        nav a {
+        .nav-links {
+            display: flex;
+            gap: 0;
+        }
+
+        .nav-links a {
             color: #ccc;
             text-decoration: none;
-            margin-left: 24px;
+            margin-left: 20px;
             font-size: 15px;
             transition: color 0.2s;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: #fff;
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 4px;
+            background: none;
+            border: none;}
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: var(--primary-dark);
+            padding: 8px 0 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu a {
+            color: #ccc;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+        }
+
+        .mobile-menu.open {
+            display: flex;
         }
 
         /* HERO */
         .hero {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: #fff;
-            padding: 100px 40px;
+            padding: 72px 20px 60px;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             line-height: 1.2;
         }
 
@@ -83,24 +133,24 @@
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 17px;
             color: #B3C8E8;
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin: 0 auto 32px;
             line-height: 1.6;
         }
 
         .btn-group {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 16px 36px;
+            padding: 14px 28px;
             border-radius: 50px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             text-decoration: none;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -127,9 +177,9 @@
 
         /* BADGES */
         .badges {
-            margin-top: 48px;
+            margin-top: 36px;
             display: flex;
-            gap: 24px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -138,42 +188,42 @@
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 12px;
-            padding: 10px 20px;
-            font-size: 14px;
+            padding: 8px 16px;
+            font-size: 13px;
             color: #fff;
         }
 
         /* FEATURES */
         .section {
-            padding: 80px 40px;
+            padding: 60px 20px;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-light);
-            font-size: 17px;
-            margin-bottom: 56px;
+            font-size: 16px;
+            margin-bottom: 48px;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
         }
 
         .feature-card {
             background: var(--card-bg);
             border-radius: 16px;
-            padding: 32px;
+            padding: 28px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             transition: transform 0.2s, box-shadow 0.2s;
         }
@@ -184,28 +234,28 @@
         }
 
         .feature-icon {
-            font-size: 36px;
-            margin-bottom: 16px;
+            font-size: 34px;
+            margin-bottom: 14px;
         }
 
         .feature-card h3 {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--primary-dark);
         }
 
         .feature-card p {
             color: var(--text-light);
             line-height: 1.6;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         /* PRICING */
         .pricing-section {
             background: var(--primary-dark);
             color: #fff;
-            padding: 80px 40px;
+            padding: 60px 20px;
         }
 
         .pricing-section .section-title {
@@ -218,8 +268,8 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
             max-width: 1100px;
             margin: 0 auto;
         }
@@ -228,7 +278,7 @@
             background: rgba(255,255,255,0.08);
             border: 1px solid rgba(255,255,255,0.15);
             border-radius: 20px;
-            padding: 40px 32px;
+            padding: 36px 28px;
             text-align: center;
             transition: transform 0.2s;
         }
@@ -236,27 +286,26 @@
         .price-card.featured {
             background: var(--accent);
             border-color: var(--accent);
-            transform: scale(1.04);
         }
 
         .price-card:hover {
-            transform: scale(1.06);
+            transform: scale(1.03);
         }
 
         .price-card h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .price-card .price {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 800;
-            margin: 20px 0;
+            margin: 16px 0;
         }
 
         .price-card .price span {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 400;
             opacity: 0.8;
         }
@@ -264,12 +313,12 @@
         .price-card ul {
             list-style: none;
             text-align: left;
-            margin: 24px 0;
+            margin: 20px 0;
         }
 
         .price-card ul li {
-            padding: 8px 0;
-            font-size: 15px;
+            padding: 7px 0;
+            font-size: 14px;
             opacity: 0.9;
         }
 
@@ -281,39 +330,38 @@
         /* HOW IT WORKS */
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 32px;
-            counter-reset: step;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
         }
 
         .step {
             text-align: center;
-            padding: 24px;
+            padding: 20px;
         }
 
         .step-number {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             background: var(--primary);
             color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
-            margin: 0 auto 20px;
+            margin: 0 auto 16px;
         }
 
         .step h3 {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .step p {
             color: var(--text-light);
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.6;
         }
 
@@ -322,14 +370,14 @@
             background: #111;
             color: #888;
             text-align: center;
-            padding: 32px 40px;
-            font-size: 14px;
+            padding: 28px 20px;
+            font-size: 13px;
         }
 
         footer a {
             color: #aaa;
             text-decoration: none;
-            margin: 0 12px;
+            margin: 0 8px;
         }
 
         footer a:hover {
@@ -337,7 +385,88 @@
         }
 
         .footer-links {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .btn {
+                padding: 12px 22px;
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 48px 16px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card.featured {
+                transform: none;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pricing-section {
+                padding: 48px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 52px 16px 44px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -346,13 +475,24 @@
 <!-- NAVIGATION -->
 <nav>
     <div class="logo">SQLite Ultimate <span>Editor</span></div>
-    <div>
+    <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#how">How It Works</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
     </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="closeMenu()">Features</a>
+    <a href="#how" onclick="closeMenu()">How It Works</a>
+    <a href="#pricing" onclick="closeMenu()">Pricing</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -413,7 +553,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section style="background: #fff; padding: 80px 0;" id="how">
+<section style="background: #fff; padding: 60px 0;" id="how">
     <div class="section" style="padding-top: 0; padding-bottom: 0;">
         <h2 class="section-title">How Does It Work?</h2>
         <p class="section-subtitle">Start working with your database in four simple steps</p>
@@ -452,21 +592,21 @@
             <h3>Free</h3>
             <div class="price">$0<span>/forever</span></div>
             <ul>
-                <li>Limit table browsing</li>
-                <li>Limit SQL queries</li>
+                <li>Limited table browsing</li>
+                <li>Limited SQL queries</li>
                 <li>Database structure preview</li>
-				<li>CSV export</li>
+                <li>CSV export</li>
                 <li>Ads supported</li>
             </ul>
         </div>
-		<div class="price-card featured">
+        <div class="price-card featured">
             <h3>⭐ PRO subscription</h3>
-            <div class="price">$2.59<span>/per-month</span></div>
+            <div class="price">$2.59<span>/month</span></div>
             <ul>
                 <li>Everything in Free</li>
-				<li>No limit</li>
+                <li>No limits</li>
                 <li>No ads</li>
-                <li>CSV & Excel export</li>             
+                <li>CSV & Excel export</li>
                 <li>Priority support</li>
             </ul>
         </div>
@@ -475,9 +615,9 @@
             <div class="price">$11.99<span>/one-time</span></div>
             <ul>
                 <li>Everything in Free</li>
-				<li>No limit</li>
+                <li>No limits</li>
                 <li>No ads</li>
-                <li>CSV & Excel export</li>             
+                <li>CSV & Excel export</li>
                 <li>Priority support</li>
             </ul>
         </div>
@@ -494,6 +634,27 @@
     </div>
     <p>© 2026 SQLite Ultimate Editor. All rights reserved.</p>
 </footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('open');
+    }
+
+    function closeMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.remove('open');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        const menu = document.getElementById('mobileMenu');
+        const hamburger = document.querySelector('.hamburger');
+        if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+            menu.classList.remove('open');
+        }
+    });
+</script>
 
 </body>
 </html>
